@@ -11,10 +11,10 @@ namespace TestRegEx
     public class TestRegEx3
     {
         [Test]
-        public void GivenInputString_ToCheckFor_MobileNumberOfTheUser()
+        public void GivenInputString_ToCheckFor_EmailIdOfTheUser()
         {
             PatternValidation input = new PatternValidation();
-            bool result = input.ValidateMobileNumber("9108330581");
+            bool result = input.ValidateEmailId("vidyashree2109@gmail.com");
             Assert.IsTrue(result);
         }
     }

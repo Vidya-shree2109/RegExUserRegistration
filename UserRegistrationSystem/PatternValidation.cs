@@ -6,7 +6,8 @@ namespace UserRegistrationSystem
     {
         public const string FIRSTNAME_REGEX = "^[A-Za-z]{3,}$";
         public const string LASTNAME_REGEX = "^[A-Za-z]{3,}$";
-        public const string MOBILENUMBER_REGEX = "^[0-9]{10}$";
+        public const string EMAIL_REGEX = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([azA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+
         public bool ValidateFirstName(string firstName)
         {
             if (Regex.IsMatch(firstName, FIRSTNAME_REGEX)) ;
@@ -23,14 +24,13 @@ namespace UserRegistrationSystem
                 return true;
             }
         }
-        public bool ValidateMobileNumber(string mobileNumber)
+        public bool ValidateEmailId(string emailId)
         {
-            if (Regex.IsMatch(mobileNumber, MOBILENUMBER_REGEX)) ;
+            if (Regex.IsMatch(emailId, EMAIL_REGEX)) ;
             {
-                Console.WriteLine("VALID MOBILE NUMBER ! -> " + mobileNumber);
+                Console.WriteLine("VALID EMAIL ID ! -> " + emailId);
                 return true;
             }
-
         }
     }
 }
