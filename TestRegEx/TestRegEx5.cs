@@ -14,7 +14,7 @@ namespace TestRegEx
         public void GivenInputString_ToCheckFor_PasswordOfTheUser()
         {
             PatternValidation input = new PatternValidation();
-            bool result = input.ValidatePassword("Vidya2109@#!");
+            bool result = input.ValidatePassword("vidya.21Shree#&*");
             Assert.IsTrue(result);
         }
     }
