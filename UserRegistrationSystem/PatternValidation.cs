@@ -11,6 +11,7 @@ namespace UserRegistrationSystem
         const string passwordWithOneUpperCase = "^[A-Z]{1,}[a-z]{8,}$";
         const string passwordWithOneNumber = "^[A-Z]{1,}[a-z]{8,}[0-9]{1,}$";
         const string passwordWithOneSpecialCharacter = "^[A-Z]{1,}[a-z]{8,}[0-9]{1,}[@$#!*&^%]{1}$";
+        const string ALL_EMAIL_SAMPLES = "^[a-z]+[.+-]{0,1}[0-9]{1, }+[@][a-z0-1][.][a-z]+([.][a-z]{2, }){0,1}$";
         public bool ValidateFirstName(string firstName)
         {
             if (Regex.IsMatch(firstName, FIRSTNAME_REGEX))
@@ -104,6 +105,14 @@ namespace UserRegistrationSystem
             else
             {
                 Console.WriteLine("Doesn't Match - Verify The Password !");
+            }
+            return true;
+        }
+        public bool ValidateAllEmailSamples(string email)
+        {
+            if (Regex.IsMatch(email, ALL_EMAIL_SAMPLES))
+            {
+                Console.WriteLine("Email Id Matches ! -> " + email);
             }
             return true;
         }

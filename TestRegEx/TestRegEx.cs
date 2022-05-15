@@ -61,5 +61,12 @@ namespace TestRegEx
             bool actualPassword = input.ValidatePassword("Vidya21@");
             Assert.IsTrue(actualPassword);
         }
+        [Test]
+        public void GivenEmailAsInput_WhenTestValidation_ShouldReturnAllEmailSamples()
+        {
+            PatternValidation validation = new PatternValidation();
+            bool email = validation.ValidateAllEmailSamples("vidya.21@gmail.co.in");
+            Assert.IsTrue(email);
+        }
     }
 }
