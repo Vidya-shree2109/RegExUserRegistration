@@ -4,52 +4,108 @@ namespace UserRegistrationSystem
 {
     public class PatternValidation
     {
-        public const string FIRSTNAME_REGEX = "^[A-Za-z]{3,}$";
-        public const string LASTNAME_REGEX = "^[A-Za-z]{3,}$";
-        public const string EMAIL_REGEX = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([azA-Z]{2,4}|[0-9]{1,3})(\]?)$";
-        public const string MOBILENUMBER_REGEX = "^[0-9]{10}$";
-        public static string PASSWORD_REGEX = "^(?=.*[A-Z])[a-zA-Z0-9]{8,}$";
-
+        const string FIRSTNAME_REGEX = "^[A-Z]{1}[A-Za-z]$";
+        const string EMAIL_REGEX = "^[0-9a-zA-Z]+[.+-_]{0,1}[0-9a-zA-Z]+[@][a-zA-Z]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3}){0,1}";
+        const string MOBILENUMBER_REGEX = "^[6-9]{1}[0-9]{9}$";
+        const string PASSWORD_REGEX = "^[a-zA-z0-9]{8,}";
+        const string passwordWithOneUpperCase = "^[A-Z]{1,}[a-z]{8,}$";
+        const string passwordWithOneNumber = "^[A-Z]{1,}[a-z]{8,}[0-9]{1,}$";
+        const string passwordWithOneSpecialCharacter = "^[A-Z]{1,}[a-z]{8,}[0-9]{1,}[@$#!*&^%]{1}$";
         public bool ValidateFirstName(string firstName)
         {
-            if (Regex.IsMatch(firstName, FIRSTNAME_REGEX)) ;
+            if (Regex.IsMatch(firstName, FIRSTNAME_REGEX))
             {
-                Console.WriteLine("VALID FIRST NAME ! -> " + firstName);
-                return true;
+                Console.WriteLine("First Name Matches ! -> " + firstName);
             }
+            else
+            {
+                Console.WriteLine("Doesn't Match - Verify The First Name !");
+            }
+            return true;
         }
         public bool ValidateLastName(string lastName)
         {
-            if (Regex.IsMatch(lastName, LASTNAME_REGEX)) ;
+            if (Regex.IsMatch(lastName, FIRSTNAME_REGEX))
             {
-                Console.WriteLine("VALID LAST NAME ! -> " + lastName);
-                return true;
+                Console.WriteLine("Last Name Matches ! -> " + lastName);
             }
+            else
+            {
+                Console.WriteLine("Doesn't Match - Verify The Last Name !");
+            }
+            return true;
         }
-        public bool ValidateEmailId(string emailId)
+        public bool ValidateEmail(string email)
         {
-            if (Regex.IsMatch(emailId, EMAIL_REGEX)) ;
+            if (Regex.IsMatch(email, EMAIL_REGEX))
             {
-                Console.WriteLine("VALID EMAIL ID ! -> " + emailId);
-                return true;
+                Console.WriteLine("Email Id Matches ! -> " + email);
             }
+            else
+            {
+                Console.WriteLine("Doesn't Match - Verify The Email Id !");
+            }
+            return true;
         }
         public bool ValidateMobileNumber(string mobileNumber)
         {
-            if (Regex.IsMatch(mobileNumber, MOBILENUMBER_REGEX)) ;
+            if (Regex.IsMatch(mobileNumber, MOBILENUMBER_REGEX))
             {
-                Console.WriteLine("VALID MOBILE NUMBER ! -> " + mobileNumber);
-                return true;
+                Console.WriteLine("Mobile Number Matches ! -> " + mobileNumber);
             }
-
+            else
+            {
+                Console.WriteLine("Doesn't Match - Verify The Mobile Number !");
+            }
+            return true;
         }
-        public bool ValidatePassword(string Password)
+        public bool ValidatePassword(string password)
         {
-            if (Regex.IsMatch(Password, PASSWORD_REGEX)) ;
+            if (Regex.IsMatch(password, PASSWORD_REGEX))
             {
-                Console.WriteLine("VALID PASSWORD ! -> " + Password);
-                return true;
+                Console.WriteLine("Password Matches ! -> " + password);
             }
+            else
+            {
+                Console.WriteLine("Doesn't Match - Verify The Password !");
+            }
+            return true;
+        }
+        public bool PasswordValidation_WithOneUpperCase(string password)
+        {
+            if (Regex.IsMatch(password, passwordWithOneUpperCase))
+            {
+                Console.WriteLine("Password Matches ! -> " + password);
+            }
+            else
+            {
+                Console.WriteLine("Doesn't Match - Verify The Password !");
+            }
+            return true;
+        }
+        public bool PasswordValidation_WithOneNumericNumber(string password)
+        {
+            if (Regex.IsMatch(password, passwordWithOneNumber))
+            {
+                Console.WriteLine("Password Matches ! -> " + password);
+            }
+            else
+            {
+                Console.WriteLine("Doesn't Match - Verify The Password !");
+            }
+            return true;
+        }
+        public bool PasswordValidation_WithOneSpecialCharacter(string password)
+        {
+            if (Regex.IsMatch(password, passwordWithOneSpecialCharacter))
+            {
+                Console.WriteLine("Password Matches ! -> " + password);
+            }
+            else
+            {
+                Console.WriteLine("Doesn't Match - Verify The Password !");
+            }
+            return true;
         }
     }
 }
