@@ -68,5 +68,15 @@ namespace TestRegEx
             bool email = validation.ValidateAllEmailSamples("vidya.21@gmail.co.in");
             Assert.IsTrue(email);
         }
+        [Test]
+        [TestCase("vidya.2109@gmail.com.au")]
+        [TestCase("neha513@gmail.com")]
+        [TestCase("vidya@gmail.com")]
+        public void GivenEmailAsInput_WhenParameterizedTestValidation_ShouldReturnAllEmailSamples(string email)
+        {
+            PatternValidation validation = new PatternValidation();
+            bool actual = validation.ValidateMultipleEntryEmailSamplesWithParameterized(email);
+            Assert.IsTrue(actual, email);
+        }
     }
 }

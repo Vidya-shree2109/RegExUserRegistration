@@ -4,6 +4,7 @@ namespace UserRegistrationSystem
 {
     public class PatternValidation
     {
+        List<string> list = new List<string>();
         const string FIRSTNAME_REGEX = "^[A-Z]{1}[A-Za-z]$";
         const string EMAIL_REGEX = "^[0-9a-zA-Z]+[.+-_]{0,1}[0-9a-zA-Z]+[@][a-zA-Z]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3}){0,1}";
         const string MOBILENUMBER_REGEX = "^[6-9]{1}[0-9]{9}$";
@@ -115,6 +116,19 @@ namespace UserRegistrationSystem
                 Console.WriteLine("Email Id Matches ! -> " + email);
             }
             return true;
+        }
+        public bool ValidateMultipleEntryEmailSamplesWithParameterized(string email)
+        {
+            if (Regex.IsMatch(email, ALL_EMAIL_SAMPLES))
+            {
+                Console.WriteLine("Email Id Matches ! -> " + email);
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Doesn't Match - Verify The Email !");
+                return false;
+            }
         }
     }
 }
